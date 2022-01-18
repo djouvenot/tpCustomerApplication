@@ -5,10 +5,13 @@
 package fr.grin.tpcustomerapplication.managedbeans;
 
 import fr.grin.tpcustomerapplication.entities.Customer;
+import fr.grin.tpcustomerapplication.entities.DiscountCode;
 import fr.grin.tpcustomerapplication.session.CustomerManager;
+import fr.grin.tpcustomerapplication.session.DiscountCodeManager;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 
 /**
@@ -24,6 +27,8 @@ public class CustomerDetailsMBean implements Serializable {
 
     @EJB
     private CustomerManager customerManager;
+    @EJB
+    private DiscountCodeManager discountCodeManager;
 
     public int getIdCustomer() {
         return idCustomer;
@@ -57,5 +62,12 @@ public class CustomerDetailsMBean implements Serializable {
 
     public void loadCustomer() {
         this.customer = customerManager.getCustomer(idCustomer);
+    }
+
+    /**
+     * Retourne la liste de tous les DiscountCode.
+     */
+    public List<DiscountCode> getDiscountCodes() {
+        return discountCodeManager.getAllDiscountCodes();
     }
 }
