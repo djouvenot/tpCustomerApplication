@@ -13,7 +13,8 @@ import javax.persistence.Query;
 
 /**
  *
- * @author djouvenot Gère la persistance des Customers.
+ * @author djouvenot 
+ * Gère la persistance des Customers.
  */
 @Stateless
 public class CustomerManager {
